@@ -28,7 +28,7 @@ try {
             "host"     => "mysql",
             "username" => "root",
             "password" => "secret",
-            "dbname"   => "tutorial"
+            "dbname"   => "phalcondb"
         ));
     };
 
