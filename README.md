@@ -13,29 +13,29 @@ curl -sS https://getcomposer.org/installer | php
 curl: (6) Could not resolve host
 ```
 
-そのため、以下のような手順を踏む必要がある
+そのため、以下のような手順を踏む必要がある（なんかできるときもあるからよく分からない）
 
 ```
 apt-get update
 apt-get install vim
 vi /etc/resolv.conf
+/etc/init.d/apache2 restart
 ```
 
-これで127.0.0.11を8.8.8.8に書き換える
-
+これで127.0.0.11を8.8.8.8に書き換えてapacheリスタート
 その後以下の処理を行う
 
 ```
-/etc/init.d/apache2 restart
 cd /project
 curl -sS https://getcomposer.org/installer | php
-```
-
-その後、[https://github.com/phalcon/phalcon-devtools](url)の手順に従ってphalcon-devtoolsをインストールする
-
-```
+php composer.phar install
 cd /project/vendor/phalcon/devtools
 php phalcon.php
 ```
 
 これでコマンドを確認することができる
+例として、ProductControllerを作成するには以下のコマンドを打つ
+
+```
+php /project/vendor/phalcon/devtools/phalcon.php controller --name=product --output=app/controllers
+```

@@ -8,7 +8,6 @@ ENV PROVISION_CONTEXT "development"
 # Deploy scripts/configurations
 COPY bin/*.sh /opt/docker/provision/entrypoint.d/
 
-RUN \
-    # Custom provisions
-    chmod +x /opt/docker/provision/entrypoint.d/*.sh \
+RUN chmod +x /opt/docker/provision/entrypoint.d/*.sh
 
+RUN /bin/echo -e "nameserver 8.8.8.8" >> /etc/resolv.conf
